@@ -12,7 +12,7 @@
       </tr>
     {% for dish in dish_list %}
       <tr>
-        <td>{{ dish.name }}</td>
+        <td><a href="{% url 'sushi:dish-detail' pk=dish.id %}">{{ dish.name }}</a></td>
         <td>{{ dish.price }}</td>
         <td>{{ dish.dish_type }}</td>
       </tr>
