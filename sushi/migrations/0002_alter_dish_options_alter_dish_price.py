@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('sushi', '0001_initial'),
+        ("sushi", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='dish',
-            options={'verbose_name': 'dish', 'verbose_name_plural': 'dishes'},
+            name="dish",
+            options={"verbose_name": "dish", "verbose_name_plural": "dishes"},
         ),
         migrations.AlterField(
-            model_name='dish',
-            name='price',
+            model_name="dish",
+            name="price",
             field=models.DecimalField(decimal_places=2, max_digits=5),
         ),
     ]
