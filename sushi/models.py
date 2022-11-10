@@ -24,7 +24,7 @@ class Cook(AbstractUser):
         return f"{self.username} ({self.first_name} {self.last_name})"
 
     def get_absolute_url(self):
-        return reverse("taxi:driver-detail", kwargs={"pk": self.pk})
+        return reverse("sushi:cook-detail", kwargs={"pk": self.pk})
 
 
 class Dish(models.Model):
