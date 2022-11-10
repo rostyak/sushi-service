@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sushi'
 ]
+
+AUTH_USER_MODEL = "sushi.Cook"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
