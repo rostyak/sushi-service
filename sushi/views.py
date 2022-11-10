@@ -22,6 +22,7 @@ class CookListView(generic.ListView):
     model = Cook
     template_name = "sushi/cook_list.html"
     context_object_name = "cook_list"
+    paginate_by = 10
 
 
 class CookDetailView(generic.DetailView):
@@ -32,6 +33,7 @@ class DishListView(generic.ListView):
     model = Dish
     template_name = "sushi/dish_list.html"
     context_object_name = "dish_list"
+    paginate_by = 10
 
 
 class DishDetailView(generic.DetailView):
@@ -42,4 +44,5 @@ class DishTypeListView(generic.ListView):
     model = DishType
     template_name = "sushi/dish_type_list.html"
     context_object_name = "dish_type_list"
+    paginate_by = 10
 
