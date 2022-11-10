@@ -9,10 +9,14 @@ def index(request):
     num_dishes = Dish.objects.count()
     num_dish_types = DishType.objects.count()
 
+    num_visits = request.session.get("num_visits", 1)
+    request.session["num_visits"] = num_visits + 1
+
     context = {
         "num_cooks": num_cooks,
         "num_dishes": num_dishes,
         "num_dish_types": num_dish_types,
+        "num_visits": num_visits
     }
 
     return render(request, "sushi/index.html", context=context)
@@ -34,6 +38,7 @@ class DishListView(generic.ListView):
     template_name = "sushi/dish_list.html"
     context_object_name = "dish_list"
     paginate_by = 10
+    queryset = Dish.objects.all().select_related("dish_type")
 
 
 class DishDetailView(generic.DetailView):
