@@ -13,7 +13,7 @@
       <hr>
       <p><strong>Name:</strong> {{ dish.name }}</p>
       <p><strong>Price:</strong> {{ dish.price }}</p>
-      <p><strong>Type of dish:</strong> {{ dish.type }}</p>
+      <p><strong>Type of dish:</strong> {{ dish.dish_type.name }}</p>
     {% empty %}
       <p>Sorry. He can't cook any dish!</p>
     {% endfor %}
