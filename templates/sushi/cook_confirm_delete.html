@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Delete dish type</h1>
-  <h3>Are you sure you want to delete dish type "{{ dishtype.name }}"?</h3>
+  <h1>Delete cook</h1>
+  <h3>Are you sure you want to delete cook "{{ cook.first_name }} {{ cook.last_name }} ({{ cook.username }})"?</h3>
   <form action="" method="post">
     {% csrf_token %}
 

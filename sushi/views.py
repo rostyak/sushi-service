@@ -35,6 +35,23 @@ class CookDetailView(generic.DetailView):
     model = Cook
 
 
+class CookCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Cook
+    fields = "__all__"
+    success_url = reverse_lazy("sushi:cooks-list")
+
+
+class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Cook
+    fields = "__all__"
+    success_url = reverse_lazy("sushi:cooks-list")
+
+
+class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Cook
+    success_url = reverse_lazy("sushi:cooks-list")
+
+
 class DishListView(generic.ListView):
     model = Dish
     template_name = "sushi/dish_list.html"
