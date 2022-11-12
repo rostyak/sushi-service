@@ -12,7 +12,7 @@ class DishAdmin(admin.ModelAdmin):
 
 
 @admin.register(Cook)
-class CookAdmin(admin.ModelAdmin):
+class CookAdmin(UserAdmin):
     list_display = UserAdmin.list_display + ("years_of_experience",)
     fieldsets = UserAdmin.fieldsets + (
         (("Additional info", {"fields": ("years_of_experience",)}),)

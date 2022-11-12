@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Dish types List</h1>
+  <h1>
+    Our dish types
+    <a href="{% url 'sushi:dish-type-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
 
   {% if dish_type_list %}
     <ul>
