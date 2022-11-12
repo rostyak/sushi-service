@@ -70,3 +70,22 @@ class DishTypeListView(generic.ListView):
     context_object_name = "dish_type_list"
     paginate_by = 10
 
+
+class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
+    model = DishType
+    fields = "__all__"
+    success_url = reverse_lazy("sushi:dish-types-list")
+    template_name = "sushi/dish_type_form.html"
+
+
+class DishTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = DishType
+    fields = "__all__"
+    success_url = reverse_lazy("sushi:dish-types-list")
+    template_name = "sushi/dish_type_form.html"
+
+
+class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = DishType
+    success_url = reverse_lazy("sushi:dish-types-list")
+    template_name = "sushi/dish_type_confirm_delete.html"
