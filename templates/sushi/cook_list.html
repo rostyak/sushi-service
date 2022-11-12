@@ -15,6 +15,8 @@
         <th>First name</th>
         <th>Last name</th>
         <th>Years of experience</th>
+        <th>Update (years of experience)</th>
+        <th>Delete</th>
       </tr>
     {% for cook in cook_list %}
       <tr>
@@ -22,6 +24,12 @@
         <td>{{ cook.first_name }}</td>
         <td>{{ cook.last_name }}</td>
         <td>{{ cook.years_of_experience }}</td>
+        <td><a class="btn btn-primary" href="{% url 'sushi:cook-update' pk=cook.id %}">
+          Update
+        </a></td>
+        <td><a class="btn btn-danger" href="{% url 'sushi:cook-delete' pk=cook.id %}">
+          Delete
+        </a></td>
       </tr>
     {% endfor %}
     </table>
