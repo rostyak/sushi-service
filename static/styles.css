@@ -1,0 +1,27 @@
+body {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.topnav {
+    text-align: center;
+    background-color: darkgray;
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid #000000;
+}
+
+.nav-element {
+    margin: 30px;
+    color: white;
+}
+
+.content-details {
+    margin: 20px;
+}
+
+.content {
+    background-color: lightgrey;
+    border: 2px solid grey;
+    margin: 25px;
+}
