@@ -3,7 +3,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from sushi.forms import CookCreationForm, CookYearsOfExperienceUpdateForm
+from sushi.forms import CookCreationForm, CookYearsOfExperienceUpdateForm, \
+    DishCreateForm
 from sushi.models import Cook, Dish, DishType
 
 
@@ -66,13 +67,13 @@ class DishDetailView(generic.DetailView):
 
 class DishCreateView(LoginRequiredMixin, generic.CreateView):
     model = Dish
-    fields = "__all__"
+    form_class = DishCreateForm
     success_url = reverse_lazy("sushi:dishes-list")
 
 
 class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Dish
-    fields = "__all__"
+    form_class = DishCreateForm
     success_url = reverse_lazy("sushi:dishes-list")
 
 
