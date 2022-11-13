@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from sushi.forms import CookCreationForm
+from sushi.forms import CookCreationForm, CookYearsOfExperienceUpdateForm
 from sushi.models import Cook, Dish, DishType
 
 
@@ -43,7 +43,7 @@ class CookCreateView(LoginRequiredMixin, generic.CreateView):
 
 class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Cook
-    fields = "__all__"
+    form_class = CookYearsOfExperienceUpdateForm
     success_url = reverse_lazy("sushi:cooks-list")
 
 

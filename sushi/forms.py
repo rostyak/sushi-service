@@ -16,3 +16,15 @@ class CookCreationForm(UserCreationForm):
     class Meta:
         model = Cook
         fields = ("username", "first_name", "last_name", "years_of_experience")
+
+
+class CookYearsOfExperienceUpdateForm(forms.ModelForm):
+
+    class Meta:
+        model = Cook
+        fields = ("years_of_experience",)
+
+    years_of_experience = forms.IntegerField(
+        required=True,
+        min_value=0
+    )
