@@ -1,16 +1,14 @@
-<ul class="sidebar-nav list-group">
+<div class="topnav">
 
-  {% if user.is_authenticated %}
-    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
-    <li class="list-group-item"><a href="{% url 'logout'%}">Logout</a></li>
+  <a href="{% url 'sushi:index' %}" class="nav-element">Home</a>
+  <a href="{% url 'sushi:cooks-list' %}" class="nav-element">Cooks</a>
+  <a href="{% url 'sushi:dishes-list' %}" class="nav-element">Dishes</a>
+  <a href="{% url 'sushi:dish-types-list' %}" class="nav-element">Dish types</a>
+  {% if user.is_authenticated  %}
+    <a href="{{ user.get_absolute_url }}" class="nav-element">{{ user.get_username }}</a>
+    <a href="{% url 'logout' %}" class="nav-element">Logout</a>
   {% else %}
-    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+    <a href="{% url 'login'%}?next={{request.path}}" class="nav-element">Log in</a>
   {% endif %}
 
-  <br>
-
-  <li class="list-group-item"><a href="{% url 'sushi:index' %}">Home</a></li>
-  <li class="list-group-item"><a href="{% url 'sushi:cooks-list' %}">Cooks</a></li>
-  <li class="list-group-item"><a href="{% url 'sushi:dishes-list' %}">Dishes</a></li>
-  <li class="list-group-item"><a href="{% url 'sushi:dish-types-list' %}">Dish types</a></li>
-</ul>
+</div>

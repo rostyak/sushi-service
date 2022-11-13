@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-  <h1>Welcome to my Sushi-Kitchen service!</h1>
-  <h3>Here you can check all info about it.</h3>
-  <br>
-  <h5>My service has the next indicators:</h5>
-  <hr>
-    <h3>Cooks: {{ num_cooks }}</h3>
-    <p>Top cooks who trained at top universities of Europe.</p>
-  <hr>
-    <h3>Dishes: {{ num_dishes }}</h3>
-    <p>These are amazing dishes with refined taste.</p>
-  <hr>
-    <h3>Types of dish: {{ num_dish_types }}</h3>
-    <p></p>
-  <hr>
-
+  <div class="content-details">
+    <h1>Welcome to my Sushi-Kitchen service!</h1>
+    <h3>Here you can check all info about it.</h3>
+    <br>
+    <h5>My service has the next indicators:</h5>
+    <hr>
+      <h3>Cooks: {{ num_cooks }}</h3>
+      <p>Top cooks who trained at top universities of Europe.</p>
+    <hr>
+      <h3>Dishes: {{ num_dishes }}</h3>
+      <p>These are amazing dishes with refined taste.</p>
+    <hr>
+      <h3>Types of dish: {{ num_dish_types }}</h3>
+      <p></p>
+    <hr>
+  </div>
 {% endblock %}
