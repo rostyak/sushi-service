@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from sushi.forms import CookCreationForm, CookYearsOfExperienceUpdateForm, \
-    DishCreateForm
+    DishCreateForm, CookSearchForm, DishSearchForm
 from sushi.models import Cook, Dish, DishType
 
 
@@ -30,7 +30,29 @@ class CookListView(generic.ListView):
     model = Cook
     template_name = "sushi/cook_list.html"
     context_object_name = "cook_list"
-    paginate_by = 8
+    paginate_by = 7
+    queryset = Cook.objects.all()
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(CookListView, self).get_context_data(**kwargs)
+
+        username = self.request.GET.get("username", "")
+
+        context["search_form"] = CookSearchForm(
+            initial={"username": username}
+        )
+
+        return context
+
+    def get_queryset(self):
+        form = CookSearchForm(self.request.GET)
+
+        if form.is_valid():
+            return self.queryset.filter(
+                username__icontains=form.cleaned_data["username"]
+            )
+
+        return self.queryset
 
 
 class CookDetailView(generic.DetailView):
@@ -57,8 +79,29 @@ class DishListView(generic.ListView):
     model = Dish
     template_name = "sushi/dish_list.html"
     context_object_name = "dish_list"
-    paginate_by = 8
+    paginate_by = 7
     queryset = Dish.objects.all().select_related("dish_type")
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(DishListView, self).get_context_data(**kwargs)
+
+        name = self.request.GET.get("name", "")
+
+        context["search_form"] = DishSearchForm(
+            initial={"name": name}
+        )
+
+        return context
+
+    def get_queryset(self):
+        form = DishSearchForm(self.request.GET)
+
+        if form.is_valid():
+            return self.queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
+
+        return self.queryset
 
 
 class DishDetailView(generic.DetailView):
@@ -86,7 +129,7 @@ class DishTypeListView(generic.ListView):
     model = DishType
     template_name = "sushi/dish_type_list.html"
     context_object_name = "dish_type_list"
-    paginate_by = 8
+    paginate_by = 7
 
 
 class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
