@@ -30,7 +30,7 @@ class CookListView(generic.ListView):
     model = Cook
     template_name = "sushi/cook_list.html"
     context_object_name = "cook_list"
-    paginate_by = 10
+    paginate_by = 8
 
 
 class CookDetailView(generic.DetailView):
@@ -57,7 +57,7 @@ class DishListView(generic.ListView):
     model = Dish
     template_name = "sushi/dish_list.html"
     context_object_name = "dish_list"
-    paginate_by = 10
+    paginate_by = 8
     queryset = Dish.objects.all().select_related("dish_type")
 
 
@@ -86,7 +86,7 @@ class DishTypeListView(generic.ListView):
     model = DishType
     template_name = "sushi/dish_type_list.html"
     context_object_name = "dish_type_list"
-    paginate_by = 10
+    paginate_by = 8
 
 
 class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
