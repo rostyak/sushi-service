@@ -30,7 +30,7 @@ class CookListView(generic.ListView):
     model = Cook
     template_name = "sushi/cook_list.html"
     context_object_name = "cook_list"
-    paginate_by = 7
+    paginate_by = 5
     queryset = Cook.objects.all()
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -79,7 +79,7 @@ class DishListView(generic.ListView):
     model = Dish
     template_name = "sushi/dish_list.html"
     context_object_name = "dish_list"
-    paginate_by = 7
+    paginate_by = 5
     queryset = Dish.objects.all().select_related("dish_type")
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -129,7 +129,7 @@ class DishTypeListView(generic.ListView):
     model = DishType
     template_name = "sushi/dish_type_list.html"
     context_object_name = "dish_type_list"
-    paginate_by = 7
+    paginate_by = 5
 
 
 class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
