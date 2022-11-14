@@ -29,4 +29,8 @@ Main features of my project are:
 
 ## Demo
 
-![Website interface](home.png)
+![Website interface](Home.png)
+
+## DB structure
+
+![DB structure](DB%20structure.png)
