@@ -27,6 +27,13 @@ Main features of my project are:
 * Managing cooks, dishes and dishes types directly from website, using convenient tables
 * Powerful admin panel for advanced managing
 
+You can login to see all the functionality of the website.
+```
+login: Owis
+password: simplepassforme
+```
+
+
 ## Demo
 
 ![Website interface](Home.png)
