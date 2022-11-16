@@ -4,7 +4,7 @@ This is Django-Project for managing kitchen of some Sushi-service.
 
 ## Check it out!
 
-[Deployed project](HERE_WILL_BE_LINK)
+[Deployed project](https://sushi-service.onrender.com/)
 
 ## Installation
 
